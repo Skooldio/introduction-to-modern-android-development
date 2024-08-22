@@ -3,4 +3,8 @@
     <string name="home_title">GitHub Viewer</string>
     <string name="information_title">Information</string>
     <string name="unknown_error_message">Something went wrong</string>
+    <!-- TODO 8: Add string resource for user profile UI -->
+
+    <!-- TODO 9: Add string resource for repository list UI -->
+
 </resources>
