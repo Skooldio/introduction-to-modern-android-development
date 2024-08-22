@@ -3,7 +3,10 @@ package com.skooldio.githubviewer.ui.information
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
@@ -80,6 +83,12 @@ private fun InformationScreen(
         UserProfile(
             id = id,
             name = info?.user?.name ?: "",
+        )
+        Spacer(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(2.dp)
+                .background(color = MaterialColors.Gray200)
         )
         RepositoryList()
     }
