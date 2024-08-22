@@ -59,8 +59,7 @@ private fun InformationRoute(
         uiState = uiState,
         id = id,
         onBackButtonClick = {
-            // TODO 5: Back to previous screen
-
+            navController.popBackStack()
         },
     )
 }
