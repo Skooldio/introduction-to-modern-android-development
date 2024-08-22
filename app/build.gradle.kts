@@ -71,7 +71,7 @@ dependencies {
     implementation(libs.gson)
     implementation(libs.arrow.core)
 
-    // TODO 6: Add Coil library
+    implementation(libs.coil)
 
     ksp(libs.hilt.android.compiler)
     implementation(libs.hilt.android)
