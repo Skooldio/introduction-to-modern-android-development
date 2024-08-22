@@ -42,8 +42,7 @@ private fun HomeRoute(navController: NavController) {
     HomeScreen(
         onAndroidButtonClicked = {
             // TODO 17: Navigate and pass data to information screen
-            // TODO 5: Navigate to information screen
-
+            navController.navigate(INFORMATION_ROUTE)
         },
         onSkooldioButtonClicked = {
             // TODO 17: Navigate and pass data to information screen
