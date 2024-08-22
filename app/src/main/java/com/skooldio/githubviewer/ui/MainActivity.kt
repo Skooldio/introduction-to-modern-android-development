@@ -5,8 +5,13 @@ import androidx.activity.ComponentActivity
 import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.toArgb
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
@@ -49,11 +54,19 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GitHubViewerApp() {
     val navController = rememberNavController()
-    NavHost(
-        navController = navController,
-        startDestination = HOME_ROUTE,
-    ) {
-        home(navController = navController)
-        information(navController = navController)
+    Scaffold { paddingValues ->
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(paddingValues)
+        ) {
+            NavHost(
+                navController = navController,
+                startDestination = HOME_ROUTE,
+            ) {
+                home(navController = navController)
+                information(navController = navController)
+            }
+        }
     }
 }
