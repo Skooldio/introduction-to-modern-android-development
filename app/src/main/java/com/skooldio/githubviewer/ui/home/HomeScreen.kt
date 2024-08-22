@@ -9,6 +9,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
@@ -55,8 +56,10 @@ private fun HomeScreen(
             .fillMaxSize()
             .background(MaterialColors.White),
     ) {
-        // TODO 3: Add image from drawable resource and title from string resource
-        Header(title = "")
+        Header(
+            title = stringResource(R.string.home_title),
+            leadingIcon = painterResource(R.drawable.ic_github)
+        )
 
         // TODO 4: Add 2 buttons
         // https://www.figma.com/design/PZVok42lKzIwCHTwlp9Nfg/In-House%3A-Introduction-to-Modern-Android-Development
