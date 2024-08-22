@@ -2,16 +2,22 @@ package com.skooldio.githubviewer.ui.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
@@ -60,10 +66,21 @@ private fun HomeScreen(
             title = stringResource(R.string.home_title),
             leadingIcon = painterResource(R.drawable.ic_github)
         )
-
-        // TODO 4: Add 2 buttons
-        // https://www.figma.com/design/PZVok42lKzIwCHTwlp9Nfg/In-House%3A-Introduction-to-Modern-Android-Development
-        
+        Column(modifier = Modifier.padding(32.dp)) {
+            Button(
+                modifier = Modifier.height(40.dp),
+                onClick = onAndroidButtonClicked,
+            ) {
+                Text(text = "Android")
+            }
+            Spacer(modifier = Modifier.height(16.dp))
+            Button(
+                modifier = Modifier.height(40.dp),
+                onClick = onSkooldioButtonClicked,
+            ) {
+                Text(text = "Skooldio")
+            }
+        }
     }
 }
 
