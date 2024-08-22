@@ -16,17 +16,16 @@
         android:theme="@style/Theme.GitHubViewer"
         tools:targetApi="31">
 
-        <!-- TODO 1: Add missing activity -->
-<!--        <activity-->
-<!--            android:name=".ui.MainActivity"-->
-<!--            android:exported="true"-->
-<!--            android:theme="@style/Theme.GitHubViewer">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.GitHubViewer">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
     </application>
 
