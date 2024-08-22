@@ -177,14 +177,6 @@ private fun InformationScreenPreview() {
             user = User(
                 id = "android",
                 name = "Android",
-                avatarUrl = "https://picsum.photos/200/300",
-                type = "Organization",
-                bio = "",
-                publicRepositories = 10,
-                publicGists = 10,
-                followers = 1000,
-                following = 100,
-                createdAt = "2017-10-10T23:00:21Z",
             ),
             repositories = listOf(),
         )
