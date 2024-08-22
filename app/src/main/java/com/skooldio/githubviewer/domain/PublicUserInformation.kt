@@ -6,49 +6,23 @@ import com.skooldio.githubviewer.data.response.UserResponse
 data class User(
     val id: String,
     val name: String?,
-    val avatarUrl: String,
-    val type: String,
-    val bio: String?,
-    val publicRepositories: Int,
-    val publicGists: Int,
-    val followers: Int,
-    val following: Int,
-    val createdAt: String,
+    // TODO 8: Add missing parameters
 )
 
 data class Repository(
     val name: String?,
-    val description: String?,
-    val language: String?,
-    val forks: Int,
-    val watchers: Int,
-    val archived: Boolean,
-    val disabled: Boolean,
-    val license: String?,
+    // TODO 9: Add missing parameters
 )
 
 fun UserResponse.toUser() = User(
     id = this.login,
     name = this.name,
-    avatarUrl = this.avatarUrl,
-    type = this.type,
-    bio = this.bio,
-    publicRepositories = this.publicRepositories,
-    publicGists = this.publicGists,
-    followers = this.followers,
-    following = this.following,
-    createdAt = this.createdAt,
+    // TODO 8: Map more parameters
 )
 
 fun RepositoryResponse.toRepository() = Repository(
     name = this.name,
-    description = this.description,
-    language = this.language,
-    forks = this.forks,
-    watchers = this.watchers,
-    archived = this.archived,
-    disabled = this.disabled,
-    license = this.license?.name,
+    // TODO 9: Map more parameters
 )
 
 data class PublicUserInformation(
