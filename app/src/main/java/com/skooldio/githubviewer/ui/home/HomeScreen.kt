@@ -64,4 +64,13 @@ private fun HomeScreen(
     }
 }
 
-// TODO 2: Add preview for HomeScreen
+@Preview
+@Composable
+private fun HomeScreenPreview() {
+    GitHubViewerTheme {
+        HomeScreen(
+            onAndroidButtonClicked = {},
+            onSkooldioButtonClicked = {},
+        )
+    }
+}
