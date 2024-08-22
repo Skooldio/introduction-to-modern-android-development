@@ -45,9 +45,6 @@ class MainActivity : ComponentActivity() {
                 GitHubViewerApp()
             }
         }
-
-        // TODO 1: Fix app crashes by removing the below code
-        throw NullPointerException("Welcome to Logcat 101")
     }
 }
 
