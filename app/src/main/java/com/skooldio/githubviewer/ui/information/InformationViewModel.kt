@@ -7,6 +7,7 @@ import com.skooldio.githubviewer.domain.PublicUserInformation
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -27,8 +28,13 @@ class InformationViewModel @Inject constructor(
             getGitHubUseCase.invoke(
                 GetGitHubUseCase.Params(id = id)
             )
+                .onRight { result ->
+                    _uiState.update { InformationUiState(publicUserInformation = result) }
+                }
+                .onLeft {
+                    // Handle error
+                }
         }
-        // TODO 13: Handle GetGitHubUseCase result
         // TODO 16: Add loading and error states supports
     }
 }
