@@ -8,6 +8,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import javax.inject.Inject
 
+// TODO 16: Add loading and error states supports
 data class InformationUiState(
     val publicUserInformation: PublicUserInformation?,
 )
@@ -23,6 +24,6 @@ class InformationViewModel @Inject constructor(
         // TODO 10: Get data from GetGitHubUseCase
 
         // TODO 13: Handle GetGitHubUseCase result
-
+        // TODO 16: Add loading and error states supports
     }
 }
