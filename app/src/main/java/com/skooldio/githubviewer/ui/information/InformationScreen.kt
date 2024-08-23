@@ -23,6 +23,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import com.skooldio.githubviewer.R
 import com.skooldio.githubviewer.domain.PublicUserInformation
+import com.skooldio.githubviewer.domain.Repository
 import com.skooldio.githubviewer.domain.User
 import com.skooldio.githubviewer.ui.component.Header
 import com.skooldio.githubviewer.ui.theme.GitHubViewerTheme
@@ -90,7 +91,7 @@ private fun InformationScreen(
                 .height(2.dp)
                 .background(color = MaterialColors.Gray200)
         )
-        RepositoryList()
+        RepositoryList(repositories = info?.repositories)
     }
 }
 
@@ -101,14 +102,16 @@ private fun UserProfile(id: String, name: String) {
 }
 
 @Composable
-private fun RepositoryList() {
+private fun RepositoryList(
+    repositories: List<Repository>?
+) {
     // TODO 15: Replace Column with LazyColumn
     // TODO 9: Build UI for list of repositories
 
 }
 
 @Composable
-private fun RepositoryItem() {
+private fun RepositoryItem(repository: Repository) {
     // TODO 9: Build UI for repository information
 
 }
