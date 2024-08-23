@@ -24,7 +24,7 @@ class InformationViewModel @Inject constructor(
 
     fun loadInformation(id: String) {
         viewModelScope.launch {
-            getGitHubUseCase.execute(
+            getGitHubUseCase.invoke(
                 GetGitHubUseCase.Params(id = id)
             )
         }
