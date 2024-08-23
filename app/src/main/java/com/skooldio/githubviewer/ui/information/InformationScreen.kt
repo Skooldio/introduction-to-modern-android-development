@@ -66,7 +66,7 @@ private fun InformationRoute(
 ) {
     val viewModel: InformationViewModel = hiltViewModel()
 
-    val uiState: InformationUiState? by viewModel.uiState.collectAsState()
+    val uiState: InformationUiState by viewModel.uiState.collectAsState()
 
     LaunchedEffect(Unit) {
         viewModel.loadInformation(id)
@@ -83,30 +83,41 @@ private fun InformationRoute(
 
 @Composable
 private fun InformationScreen(
-    uiState: InformationUiState?,
+    uiState: InformationUiState,
     id: String,
     onBackButtonClick: () -> Unit,
 ) {
-    val info = uiState?.publicUserInformation
     Column(
         modifier = Modifier
             .fillMaxSize()
             .background(MaterialColors.White)
     ) {
-        // TODO 16: Add loading and error UIs
-        Header(
-            title = stringResource(R.string.information_title),
-            backIcon = true,
-            onButtonClick = onBackButtonClick,
-        )
-        UserProfile(user = info?.user)
-        Spacer(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(2.dp)
-                .background(color = MaterialColors.Gray200)
-        )
-        RepositoryList(repositories = info?.repositories)
+        when (uiState) {
+            InformationUiState.Loading, null -> {
+                LoadingContent()
+            }
+
+            InformationUiState.Error -> {
+                ErrorContent()
+            }
+
+            is InformationUiState.Success -> {
+                val info = uiState.publicUserInformation
+                Header(
+                    title = stringResource(R.string.information_title),
+                    backIcon = true,
+                    onButtonClick = onBackButtonClick,
+                )
+                UserProfile(user = info.user)
+                Spacer(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(2.dp)
+                        .background(color = MaterialColors.Gray200)
+                )
+                RepositoryList(repositories = info.repositories)
+            }
+        }
     }
 }
 
@@ -325,7 +336,7 @@ private fun ErrorContentPreview() {
 @Preview(heightDp = 400)
 @Composable
 private fun InformationScreenPreview() {
-    val uiState = InformationUiState(
+    val uiState = InformationUiState.Success(
         publicUserInformation = PublicUserInformation(
             user = User(
                 id = "android",
