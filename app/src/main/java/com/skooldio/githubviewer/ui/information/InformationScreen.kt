@@ -34,7 +34,9 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
+import androidx.navigation.NavType
 import androidx.navigation.compose.composable
+import androidx.navigation.navArgument
 import coil.compose.AsyncImage
 import com.skooldio.githubviewer.R
 import com.skooldio.githubviewer.domain.PublicUserInformation
@@ -47,22 +49,32 @@ import java.time.Instant
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
-// TODO 17: Add data passing supports
-const val INFORMATION_ROUTE = "information"
+const val INFORMATION_ROUTE = "information/{id}"
+
+fun NavController.navigateToInformation(id: String) {
+    navigate(INFORMATION_ROUTE.replace("{id}", id))
+}
 
 fun NavGraphBuilder.information(
     navController: NavController,
 ) {
-    // TODO 17: Add data passing supports
-    composable(INFORMATION_ROUTE) { backStackEntry ->
-        InformationRoute(navController)
+    composable(
+        INFORMATION_ROUTE,
+        arguments = listOf(
+            navArgument("id") { type = NavType.StringType }
+        )
+    ) { backStackEntry ->
+        InformationRoute(
+            navController = navController,
+            id = backStackEntry.arguments?.getString("id") ?: "android"
+        )
     }
 }
 
 @Composable
 private fun InformationRoute(
     navController: NavController,
-    id: String = "android",
+    id: String,
 ) {
     val viewModel: InformationViewModel = hiltViewModel()
 

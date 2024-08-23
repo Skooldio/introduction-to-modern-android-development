@@ -24,6 +24,7 @@ import androidx.navigation.compose.composable
 import com.skooldio.githubviewer.R
 import com.skooldio.githubviewer.ui.component.Header
 import com.skooldio.githubviewer.ui.information.INFORMATION_ROUTE
+import com.skooldio.githubviewer.ui.information.navigateToInformation
 import com.skooldio.githubviewer.ui.theme.GitHubViewerTheme
 import com.skooldio.githubviewer.ui.theme.MaterialColors
 
@@ -41,12 +42,10 @@ fun NavGraphBuilder.home(
 private fun HomeRoute(navController: NavController) {
     HomeScreen(
         onAndroidButtonClicked = {
-            // TODO 17: Navigate and pass data to information screen
-            navController.navigate(INFORMATION_ROUTE)
+            navController.navigateToInformation("android")
         },
         onSkooldioButtonClicked = {
-            // TODO 17: Navigate and pass data to information screen
-
+            navController.navigateToInformation("skooldio")
         }
     )
 }
