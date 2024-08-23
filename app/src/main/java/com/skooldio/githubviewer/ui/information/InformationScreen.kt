@@ -22,6 +22,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -190,12 +191,13 @@ private fun RepositoryItem(repository: Repository) {
     Column(Modifier.padding(16.dp)) {
         Text(
             text = repository.name,
-            fontSize = 18.sp
+            fontSize = 18.sp,
+            fontWeight = FontWeight.Medium,
         )
         repository.description?.let { description ->
             Text(
                 text = description,
-                fontSize = 16.sp
+                fontSize = 16.sp,
             )
         }
         Spacer(modifier = Modifier.height(8.dp))
