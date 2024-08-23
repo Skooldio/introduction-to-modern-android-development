@@ -18,6 +18,8 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -62,8 +64,7 @@ private fun InformationRoute(
 ) {
     val viewModel: InformationViewModel = hiltViewModel()
 
-    // TODO 14: Collect UI state from InformationViewModel
-    val uiState: InformationUiState? = null
+    val uiState: InformationUiState? by viewModel.uiState.collectAsState()
 
     LaunchedEffect(Unit) {
         viewModel.loadInformation(id)
