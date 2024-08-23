@@ -11,13 +11,16 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -168,14 +171,74 @@ private fun RepositoryList(
     repositories: List<Repository>?
 ) {
     // TODO 15: Replace Column with LazyColumn
-    // TODO 9: Build UI for list of repositories
-
+    Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
+        repositories?.forEach { repository ->
+            RepositoryItem(repository)
+            Spacer(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(2.dp)
+                    .padding(horizontal = 2.dp)
+                    .background(MaterialColors.Gray200)
+            )
+        }
+    }
 }
 
 @Composable
 private fun RepositoryItem(repository: Repository) {
-    // TODO 9: Build UI for repository information
+    Column(Modifier.padding(16.dp)) {
+        Text(
+            text = repository.name,
+            fontSize = 18.sp
+        )
+        repository.description?.let { description ->
+            Text(
+                text = description,
+                fontSize = 16.sp
+            )
+        }
+        Spacer(modifier = Modifier.height(8.dp))
+        Row {
+            repository.language?.let { language ->
+                RepositoryBadge(
+                    text = language,
+                    color = MaterialColors.Green500,
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+            }
+            repository.license?.let { license ->
+                RepositoryBadge(
+                    text = license,
+                    color = MaterialColors.Green500,
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+            }
+            if (repository.archived) {
+                RepositoryBadge(
+                    text = stringResource(R.string.repository_badge_archived),
+                    color = MaterialColors.Yellow800,
+                )
+            }
+        }
+        Spacer(modifier = Modifier.height(16.dp))
+    }
+}
 
+@Composable
+private fun RepositoryBadge(text: String, color: Color) {
+    Box(
+        modifier = Modifier
+            .background(color = color, shape = CircleShape)
+            .padding(horizontal = 8.dp, vertical = 2.dp)
+    ) {
+        Text(
+            text = text,
+            fontSize = 12.sp,
+            fontWeight = FontWeight.Medium,
+            color = MaterialColors.White,
+        )
+    }
 }
 
 @Composable
