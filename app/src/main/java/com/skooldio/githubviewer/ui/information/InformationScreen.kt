@@ -156,7 +156,11 @@ private fun UserProfilePreview() {
 private fun RepositoryItemPreview() {
     GitHubViewerTheme {
         Box(modifier = Modifier.background(MaterialColors.White)) {
-            RepositoryItem()
+            RepositoryItem(
+                Repository(
+                    name = "android"
+                )
+            )
         }
     }
 }
