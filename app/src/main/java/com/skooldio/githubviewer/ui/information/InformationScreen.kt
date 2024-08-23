@@ -75,12 +75,12 @@ private fun InformationScreen(
             .fillMaxSize()
             .background(MaterialColors.White)
     ) {
+        // TODO 16: Add loading and error UIs
         Header(
             title = stringResource(R.string.information_title),
             backIcon = true,
             onButtonClick = onBackButtonClick,
         )
-        // TODO 16: Add loading and error UIs
         UserProfile(
             id = id,
             name = info?.user?.name ?: "",
