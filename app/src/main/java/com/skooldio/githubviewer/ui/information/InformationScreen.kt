@@ -11,6 +11,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
@@ -172,9 +174,8 @@ private fun UserProfile(user: User?) {
 private fun RepositoryList(
     repositories: List<Repository>?
 ) {
-    // TODO 15: Replace Column with LazyColumn
-    Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
-        repositories?.forEach { repository ->
+    LazyColumn {
+        items(items = repositories ?: listOf(), key = { it.name }) { repository ->
             RepositoryItem(repository)
             Spacer(
                 modifier = Modifier
