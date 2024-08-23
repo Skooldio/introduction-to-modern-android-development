@@ -11,16 +11,9 @@ class GetGitHubUseCase @Inject constructor(
     )
 
     override suspend fun execute(input: Params): PublicUserInformation {
-        // TODO 12: Request data from GitHubRepository and return as PublicUserInformation
         return PublicUserInformation(
-            user = User(
-                id = "",
-                name = "",
-                avatarUrl = "",
-                type = "",
-                createdAt = "",
-            ),
-            repositories = listOf(),
+            user = gitHubRepository.getUser(input.id).toUser(),
+            repositories = gitHubRepository.getRepositories(input.id).map { it.toRepository() },
         )
     }
 }
