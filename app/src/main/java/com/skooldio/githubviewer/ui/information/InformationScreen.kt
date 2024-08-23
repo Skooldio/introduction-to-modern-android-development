@@ -29,11 +29,13 @@ import com.skooldio.githubviewer.ui.component.Header
 import com.skooldio.githubviewer.ui.theme.GitHubViewerTheme
 import com.skooldio.githubviewer.ui.theme.MaterialColors
 
+// TODO 17: Add data passing supports
 const val INFORMATION_ROUTE = "information"
 
 fun NavGraphBuilder.information(
     navController: NavController,
 ) {
+    // TODO 17: Add data passing supports
     composable(INFORMATION_ROUTE) {
         InformationRoute(navController)
     }
