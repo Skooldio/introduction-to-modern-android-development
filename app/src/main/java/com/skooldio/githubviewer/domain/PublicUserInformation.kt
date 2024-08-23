@@ -10,7 +10,7 @@ data class User(
 )
 
 data class Repository(
-    val name: String?,
+    val name: String,
     // TODO 9: Add missing parameters
 )
 
