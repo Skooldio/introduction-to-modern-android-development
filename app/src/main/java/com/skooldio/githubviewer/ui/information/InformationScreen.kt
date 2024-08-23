@@ -36,7 +36,7 @@ fun NavGraphBuilder.information(
     navController: NavController,
 ) {
     // TODO 17: Add data passing supports
-    composable(INFORMATION_ROUTE) {
+    composable(INFORMATION_ROUTE) { backStackEntry ->
         InformationRoute(navController)
     }
 }
