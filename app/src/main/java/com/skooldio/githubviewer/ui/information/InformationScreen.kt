@@ -178,7 +178,7 @@ private fun RepositoryList(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(2.dp)
-                    .padding(horizontal = 2.dp)
+                    .padding(horizontal = 16.dp)
                     .background(MaterialColors.Gray200)
             )
         }
@@ -221,7 +221,6 @@ private fun RepositoryItem(repository: Repository) {
                 )
             }
         }
-        Spacer(modifier = Modifier.height(16.dp))
     }
 }
 
