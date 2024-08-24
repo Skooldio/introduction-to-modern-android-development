@@ -83,10 +83,7 @@ private fun InformationScreen(
             backIcon = true,
             onButtonClick = onBackButtonClick,
         )
-        UserProfile(
-            id = id,
-            name = info?.user?.name ?: "",
-        )
+        UserProfile(user = info?.user,)
         Spacer(
             modifier = Modifier
                 .fillMaxWidth()
@@ -98,7 +95,7 @@ private fun InformationScreen(
 }
 
 @Composable
-private fun UserProfile(id: String, name: String) {
+private fun UserProfile(user: User?) {
     // TODO 8: Build UI for user information
 
 }
