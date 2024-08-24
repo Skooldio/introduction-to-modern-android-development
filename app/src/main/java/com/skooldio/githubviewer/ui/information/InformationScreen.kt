@@ -83,7 +83,7 @@ private fun InformationScreen(
             backIcon = true,
             onButtonClick = onBackButtonClick,
         )
-        UserProfile(user = info?.user,)
+        UserProfile(user = info?.user)
         Spacer(
             modifier = Modifier
                 .fillMaxWidth()
@@ -143,8 +143,13 @@ private fun UserProfilePreview() {
     GitHubViewerTheme {
         Box(modifier = Modifier.background(MaterialColors.White)) {
             UserProfile(
-                id = "android",
-                name = "Android",
+                User(
+                    id = "android",
+                    name = "Android",
+                    avatarUrl = "https://avatars.githubusercontent.com/u/32689599?v=4",
+                    type = "Organization",
+                    createdAt = "2017-10-10T23:00:21Z",
+                )
             )
         }
     }
@@ -198,7 +203,7 @@ private fun InformationScreenPreview() {
                 name = "Android",
                 avatarUrl = "https://avatars.githubusercontent.com/u/32689599?v=4",
                 type = "Organization",
-                createdAt = "2017-10-10T23:00:21Z"
+                createdAt = "2017-10-10T23:00:21Z",
             ),
             repositories = listOf(
                 Repository(
