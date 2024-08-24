@@ -16,6 +16,9 @@ class GetGitHubUseCase @Inject constructor(
             user = User(
                 id = "",
                 name = "",
+                avatarUrl = "",
+                type = "",
+                createdAt = "",
             ),
             repositories = listOf(),
         )

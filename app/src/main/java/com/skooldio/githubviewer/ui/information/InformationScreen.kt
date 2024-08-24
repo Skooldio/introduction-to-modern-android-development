@@ -160,7 +160,11 @@ private fun RepositoryItemPreview() {
         Box(modifier = Modifier.background(MaterialColors.White)) {
             RepositoryItem(
                 Repository(
-                    name = "android"
+                    name = "android-dev-challenge-compose",
+                    description = "Template repository for the ADS22 Speed challenge",
+                    language = "Kotlin",
+                    license = "Apache License 2.0",
+                    archived = true,
                 )
             )
         }
@@ -195,8 +199,40 @@ private fun InformationScreenPreview() {
             user = User(
                 id = "android",
                 name = "Android",
+                avatarUrl = "https://avatars.githubusercontent.com/u/32689599?v=4",
+                type = "Organization",
+                createdAt = "2017-10-10T23:00:21Z"
             ),
-            repositories = listOf(),
+            repositories = listOf(
+                Repository(
+                    name = "Name",
+                    description = "Description",
+                    language = "Language",
+                    license = "License",
+                    archived = true,
+                ),
+                Repository(
+                    name = "android-dev-challenge-compose",
+                    description = "Template repository for the ADS22 Speed challenge",
+                    language = "Kotlin",
+                    license = "Apache License 2.0",
+                    archived = true,
+                ),
+                Repository(
+                    name = "android-ktx",
+                    description = "A set of Kotlin extensions for Android app development.",
+                    language = null,
+                    license = null,
+                    archived = true,
+                ),
+                Repository(
+                    name = "architecture-templates",
+                    description = null,
+                    language = null,
+                    license = "Apache License 2.0",
+                    archived = false,
+                ),
+            ),
         )
     )
     GitHubViewerTheme {
