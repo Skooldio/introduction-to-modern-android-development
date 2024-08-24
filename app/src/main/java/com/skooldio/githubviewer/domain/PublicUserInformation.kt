@@ -7,7 +7,7 @@ data class User(
     val id: String,
     val name: String?,
     val avatarUrl: String,
-    val type: String?,
+    val type: String,
     val createdAt: String,
 )
 
